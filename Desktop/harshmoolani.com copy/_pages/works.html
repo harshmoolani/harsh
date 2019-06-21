@@ -1,0 +1,78 @@
+---
+key: 1
+title: Projects
+permalink: /works/
+excerpt: 
+image: pic02.jpg
+background-image: pic02.jpg
+---
+{%  
+if site.social.linkedin-square %}
+
+
+  <center> I am grateful for all of the opportunities and the support I have recieved in the process of pursuing these ventures. Learn more below!</center>
+  <p>
+   <h3>Create Circles </h3>
+
+   Create Circles is an initiave I originally launched in St. Louis. Through volunteering for Unity Hospice, I became wildly interested in elderly care on a personal and systemic level. I recognized that a vast population of older adults were socially isolated, dragging through their day, and living without a sense of purpose. This issue became to take up even more of my headspace when I looked at how the percentage of older adults is steadily rising. <b> <i> How could we address this issue without having enough people to support our elderly? </i> </b> <br>
+   <br>
+   To combat the issues of older adult lonilness and provide a sense of purpose, I initiated Create Circles. At Create Circles, we train high school and college students on how to interact and build rapport with elderly populations. These students then match up with older adults and learn about their lives and interests. Afterwards, the student will work with the older adult to determine a goal: write an article, create a video, host a podcast, etc. Students at Create Circles use their energy and enthusiasm to bring a new freshness and sense of production into the lives of their older adults. <br>
+   <br>
+   <center><b> <i> Reach out to me if you are interested in joining Create Circles as a volunteer or would like Create Circles work with your organization. </i> </b></center>
+ </p>
+
+  <form>
+<center><input type="button" value="Check Out Create Circles" onclick="window.location.href='http://createcircles.org/'"/></center>
+</form>
+
+  <br>
+  <br>
+
+<p>
+   <h3>Compare Medical Schools </h3> 
+
+   Medicine and healthcare can often be one of the hardest fields to enter without resouces. The barriers for entry into medicine are extremely high for people that just do not know where to get useful information. Additionally, according to AAMC, the percentage of black men in medicine has declined since 1978, pointing to a leaky pipeline for underrepresented individuals in medicine. The goal of Compare Medical schools is to empower individuals by providing a wide range of highly relevant information. <br>
+   <br>
+   We not only assist students during the medical school application process by providing information to help students create a medical school list catered towards their interests, but also provide free advising, information for gap years, interviews, etc. We aim to eliminate this perception of medicine and medical school applications as a cutthroat process and look to bring the community together. This is the only way we as future physicians will be able to effectively address the healthcare challanges ahead. <br>
+   <br>
+   <center><b> <i> Let me know if you have any questions about Compare Medical Schools! </i> </b></center>
+ </p>
+
+ <form>
+<center><input type="button" value="Check Out Compare Medical Schools" onclick="window.location.href='https://www.comparemedicalschools.com/'"/></center>
+</form>
+
+<hr>
+<div class="table-wrapper">
+  <table class="alt"><tbody><tr><td style="text-align: center;">Learn more on my
+  <a target="_blank" href="{{ site.social.linkedin-square }}">LinkedIn profile</a></td>
+  </tr></tbody></table>
+
+
+
+</div>{%
+endif %}
+{%
+if site.categories.works %}
+<div class="table-wrapper">
+  <table>
+    <tbody>{%
+      include fn_groupsort_reverse.html unsorted=site.categories.works groupby='priority' sortby='date'
+%}{%  for work in sorted_list %}
+      <tr>
+        <td><b><a href="{{ work.url | prepend: site.baseurl }}">{{ work.title }}</a></b></td>
+        <td>{{ work.date | date: "%b %Y" }}</td>
+        <td>{{ work.excerpt | strip_html | truncatewords: 12 }}</td>
+        <td>
+          {% include techlist.html %}
+        </td>
+      </tr>{%
+      endfor %}
+    </tbody>
+  </table>
+</div>{%
+  if site.works_in_progress %}
+  <div class="works_inprogress">In-progress, more to come.</div>{%
+  endif %}{%
+endif
+%}

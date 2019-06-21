@@ -1,0 +1,90 @@
+---
+key: 2
+title: Services
+permalink: /topics/
+excerpt: 
+image: pic01.jpg
+background-image: pic01.jpg
+---
+
+{%  
+if site.social.linkedin-square %}
+
+  <center> I am very passionate about teaching and students. There’s nothing more rewarding to me than working with students and inspiring them to be as excited about a topic as I am. Especially since most subjects have not come naturally to me, I can relate with all types of students and can easily understand the frustration and hardwork that is required to perform at high level. After hundreds of hours of dicussing the college game with classmates at Washington Univeristy in St. Louis and friends at other top institutions, I feel confidient in working with students to help them get where they want to be. Let me know how I can help you today </center>
+
+<p>
+   <h3>College Admissions </h3> 
+
+   There are many parts of the college application process that are poorly understood. I would love to help you with your application so that you not only get accepted to your college of choice, but also become better equiped for future applications. I can help students with <br>
+   <br>
+<ul type="circle">
+    <li>College List Making</li>
+    <li>Essay Editing</li>
+    <li>College Consulting</li>
+    <li>Mentoring</li>
+</ul>
+</p>
+
+<p>
+   <h3>Tutoring</h3> 
+
+   My goal when tutoring is to empower and excite the students. I want not only to help the student progress when I am sitting with them but also develop their skills so that they are self-improving constantly. Many times, a student is just a single phrase away from completely understanding a topic. I can help students with <br>
+   <br>
+<ul type="circle">
+    <li>High School and College Biology</li>
+    <li>High School and COllege Chemistry</li>
+    <li>Organic Chemistry</li>
+    <li>Biochemistry</li>
+    <li>Neuroscience</li>
+    <li>ACT Prep</li>
+</ul>
+</p>
+
+<center> If you would like to offer another service or are wondering if I can help you with something else, let me know! </center> <br>
+
+<form>
+<center><input type="button" value="Email me for more information" onclick="window.location.href='mailto:harsh@wustl.edu'" /></center>
+</form>
+
+</div>{%
+endif %}
+
+{%  if site.posts %}{%
+      if site.tags.featured %}
+
+  <h4>Featured</h4>
+  <ul class="post-list">{%
+        for post in site.categories.topics %}{%
+          if post.tags contains "featured" %}
+      <li class="2u 3u(large) 5u(medium) 11u(small)">
+        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
+          <div class="container">
+            <p class="post-title">{{ post.title }}</p>
+            <p class="post-date">{{ post.date | date: "%Y-%m-%d" }}</p>
+            <p class="post-desc">{{ post.excerpt | strip_html | truncatewords: 12 }}</p>
+          </div>
+        </a>
+      </li>{%
+          endif %}{%
+        endfor %}
+  </ul>{%
+      endif %}
+  <hr style="margin:1em 0 1em 0;" />
+
+    <ul style="list-style-type: none;">{%
+      assign p = '9999'
+%}{%  for post in site.categories.topics
+%}{%    assign n = post.date | date: "%Y"
+%}{%    if n != p
+%}{%      assign p = n
+%}
+      <br /><h5>{{ n }}</h5>{%
+        endif %}
+      <li style="padding-bottom: 6px;"><code>[{{ post.date | date: "%d %b" }}]</code>&nbsp;
+        <a href="{{ post.url | prepend: site.baseurl }}" style="white-space: nowrap;"><b>{{ post.title }}</b></a>&nbsp;
+          {{ post.excerpt | strip_html | truncatewords: 12 }}</li>{%
+      endfor
+%}
+    </ul>
+
+{%  endif %}
